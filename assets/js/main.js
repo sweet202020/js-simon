@@ -15,22 +15,68 @@
 
     } */
     function randomNumbers(min, max) {
+        const numbersArray=[]
         const numbersEl = document.querySelector('.number')
-        numbersArray=[]
+        let random;
         for (i=0; i < 5; i++){
-        const random= Math.floor(Math.random() * (max - min + 1) ) + min;
-        numbersArray.push(random)
-        console.log(random) 
+            random= Math.floor(Math.random() * (max - min + 1) ) + min;
+            numbersArray.push(random)
+            const string = numbersArray.join(' ')
+            numbersEl.innerHTML=string
+           /*  console.log(random)  */
+        }
+         /* console.log(string)  */
+        return numbersArray
     }
-    const string = numbersArray.join(' ')
-    numbersEl.innerHTML=string
-      }
 
-      randomNumbers(0,100)
+     const listBotNumber=randomNumbers(0,100)
+    console.log(listBotNumber) 
 
-      setTimeout(timeMemory, 30000);
 
+
+    /* console.log(timeMemory()) */
+    
+    setTimeout(timeMemory, 3000);
+      
       function timeMemory () {
+        const userNumbersArray=[]
         const numbersEl= document.querySelector('.number')
         numbersEl.classList.add('d-none')
-      }
+        for (i=0; i < 5; i++){
+            const UserMemoryNumber= Number((prompt('inserisci il numero che ti ricordi')))
+            userNumbersArray.push(UserMemoryNumber)
+        }
+        compareArrays (listBotNumber, userNumbersArray )
+         console.log(userNumbersArray); 
+        
+         function compareArrays (arrayBot, arrayUser){
+             const arrayCompare = [];
+             for (let i = 0; i < arrayBot.length; i++) {
+                 for (let j=0; j < arrayUser.length; j++){
+
+
+                 if (arrayBot[i]===arrayUser[j]){
+                    if (!arrayCompare.includes(arrayBot[i])) {
+                       const newArray= arrayCompare.push(arrayBot[i]);
+                       const h3Elemt=document.querySelector('h3')
+                       h3Elemt.innerHTML=('hai indovinato ' + (i+1) + ' numeri ')
+                       const titleElement=document.querySelector('h4.title')
+                       titleElement.innerHTML =('i numeri che hai ricordato sono: ')
+                       const remember = document.querySelector('h4.rememberNumbers')
+                       remember.innerHTML+=(arrayBot[i]+ ' ')
+
+                       
+                        console.log(newArray);
+                    } 
+            
+                 
+             }
+             }
+             }
+             return arrayCompare
+         }
+        
+         console.log(listBotNumber)
+    }
+    
+ 
