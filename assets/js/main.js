@@ -14,6 +14,19 @@
        console.log(randomNumbers)
 
     } */
+
+    const timerEl=document.querySelector('.timer')
+    let seconds = 30
+    const intervalId=setInterval(function(){
+        timerEl.innerHTML=seconds
+        if (seconds===0){
+            clearInterval(intervalId)
+        }else{
+            seconds--
+        }
+
+    },1000)
+
     function randomNumbers(min, max) {
         const numbersArray=[]
         const numbersEl = document.querySelector('.number')
@@ -36,7 +49,7 @@
 
     /* console.log(timeMemory()) */
     
-    setTimeout(timeMemory, 3000);
+    setTimeout(timeMemory, 31000);
       
       function timeMemory () {
         const userNumbersArray=[]
