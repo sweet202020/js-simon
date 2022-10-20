@@ -49,7 +49,7 @@
 
     /* console.log(timeMemory()) */
     
-    setTimeout(timeMemory, 31000);
+    setTimeout(timeMemory, 32000);
       
       function timeMemory () {
         const userNumbersArray=[]
